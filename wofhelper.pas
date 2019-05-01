@@ -10,20 +10,20 @@ function IsWofCompress(Filename:string):boolean;
 
 implementation
 
-  type WOF_EXTERNAL_INFO = record
-  WOFEI_Version:ulong;
-  WOFEI_Provider:ulong;
-  end;
+type WOF_EXTERNAL_INFO = record
+WOFEI_Version:ulong;
+WOFEI_Provider:ulong;
+end;
 
-  type WIM_PROVIDER_EXTERNAL_INFO = record
-  FPEI_Version:ulong;
-  FPEI_CompressionFormat:ulong;
-  Flags:ulong;
-  end;
+type WIM_PROVIDER_EXTERNAL_INFO = record
+FPEI_Version:ulong;
+FPEI_CompressionFormat:ulong;
+Flags:ulong;
+end;
 
 type ExternalBacking=record
-	 ExternalInfo:WOF_EXTERNAL_INFO;
-	 ProviderInfo:WIM_PROVIDER_EXTERNAL_INFO;
+ExternalInfo:WOF_EXTERNAL_INFO;
+ProviderInfo:WIM_PROVIDER_EXTERNAL_INFO;
 end;
 
 const FSCTL_SET_EXTERNAL_BACKING   =$9030C;
