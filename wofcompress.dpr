@@ -1,9 +1,6 @@
 program wofcompress;
 
 uses
-  madExcept,
-  madLinkDisAsm,
-  madListModules,
   Forms,
   ufrmmain in 'ufrmmain.pas' {frmmain},
   wofhelper in 'wofhelper.pas';
