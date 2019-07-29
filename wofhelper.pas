@@ -1,3 +1,4 @@
+//more here : https://github.com/ChloeTigre/wimlib/blob/master/include/wimlib/wof.h
 unit wofhelper;
 
 interface
@@ -8,9 +9,11 @@ function wofcompress(filename:string):boolean;
 function wofuncompress(filename:string):boolean;
 function IsWofCompress(Filename:string):boolean;
 
+
+
 implementation
 
-type WOF_EXTERNAL_INFO = record
+ type WOF_EXTERNAL_INFO = record
 WOFEI_Version:ulong;
 WOFEI_Provider:ulong;
 end;
@@ -51,6 +54,7 @@ fillchar(Backing,sizeof(Backing),0);
 
 Ret := 0;
 if DeviceIoControl(hFile, FSCTL_GET_EXTERNAL_BACKING, nil, 0, @backing, sizeof(ExternalBacking), ret, nil)<>true then raise exception.create('DeviceIoControl failed:'+inttostr(getlasterror));
+//if ret=0 then;
 end;
 
 function wofuncompress(filename:string):boolean;
@@ -95,6 +99,7 @@ end;
 
 Ret := 0;
 if DeviceIoControl(hFile, FSCTL_SET_EXTERNAL_BACKING, @backing, $14, nil, 0, ret, nil)<>true then raise exception.create('DeviceIoControl failed:'+inttostr(getlasterror));
+//we could also test ret : 20=ok, 0=nok
 result:=true;
 end;
 

@@ -11,6 +11,7 @@ object frmmain: Tfrmmain
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   OldCreateOrder = False
+  OnCreate = FormCreate
   PixelsPerInch = 120
   TextHeight = 16
   object Button1: TButton
@@ -37,6 +38,15 @@ object frmmain: Tfrmmain
     Width = 289
     Height = 24
     TabOrder = 2
-    Text = 'f:\data0.vmdk'
+    Text = 'e:\test.vhd'
+  end
+  object Button3: TButton
+    Left = 192
+    Top = 80
+    Width = 75
+    Height = 25
+    Caption = 'Status'
+    TabOrder = 3
+    OnClick = Button3Click
   end
 end
